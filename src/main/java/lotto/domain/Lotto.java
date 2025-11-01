@@ -1,9 +1,10 @@
-package lotto;
+package lotto.domain;
 
 import java.util.List;
 
 public class Lotto {
     private final List<Integer> numbers;
+    // 추가 변수 사용 금지, private 변경 금지
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -16,5 +17,7 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }
