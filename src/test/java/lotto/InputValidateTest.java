@@ -25,6 +25,19 @@ public class InputValidateTest {
     }
 
     @Test
+    @DisplayName("구입 금액이 1000원 단위가 아닐 경우 에러 테스트")
+    void purchaseAmountTest2() {
+        //given
+        InputValidator validator = new InputValidator();
+
+        //when
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () ->
+                validator.validatePurchaseAmount("5500"));
+        //then
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.INVALID_PURCHASE_AMOUNT_UNIT);
+    }
+
+    @Test
     @DisplayName("당첨 번호 입력 잘못된 형식 에러 테스트")
     void winningLottoInputTest() {
         //given
