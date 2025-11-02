@@ -8,7 +8,8 @@ public class InputValidator {
 
     public void validatePurchaseAmount(String purchaseAmount) {
         try {
-            Integer.parseInt(purchaseAmount);
+            int parsedPurchaseAmount = Integer.parseInt(purchaseAmount);
+            checkPurchaseAmountUnit(parsedPurchaseAmount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.NOT_INTEGER_PURCHASE_AMOUNT);
         }
@@ -37,6 +38,12 @@ public class InputValidator {
 
         checkRangeBonusNumber(Integer.parseInt(bonusNumber));
         checkDuplicateBonusNumber(winningLotto, Integer.parseInt(bonusNumber));
+    }
+
+    private void checkPurchaseAmountUnit(int purchaseAmount) {
+        if (purchaseAmount % 1000 != 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_PURCHASE_AMOUNT_UNIT);
+        }
     }
 
     private void checkDuplicateBonusNumber(List<Integer> winningLotto, int bonusNumber) {

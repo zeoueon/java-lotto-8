@@ -2,7 +2,6 @@ package lotto.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import lotto.constant.ErrorMessage;
 import lotto.domain.Lotto;
 import lotto.domain.LottoGenerator;
 import lotto.domain.LottoRanking;
@@ -11,17 +10,15 @@ import lotto.dto.LottoDto;
 
 public class LottoGame {
 
-    private final static int LOTTO_PRICE = 1000;
-
     private int lottoAmount;
     private LottoGenerator lottoGenerator;
     private WinningLotto winningLotto;
     private List<Lotto> lottos = new ArrayList<Lotto>();
     private List<LottoRanking> results = new ArrayList<>();
 
-    public LottoGame(int purchaseAmount) {
+    public LottoGame(int lottoAmount) {
         lottoGenerator = new LottoGenerator(RandomNumberGenerator::getUniqueSixNumbers);
-        lottoAmount = getLottoAmount(purchaseAmount);
+        this.lottoAmount = lottoAmount;
     }
 
     public List<LottoDto> startLottoGame() {
@@ -61,13 +58,5 @@ public class LottoGame {
         }
 
         return ((double) totalWinnings / (lottoAmount * 1000)) * 100;
-    }
-
-    private int getLottoAmount(int purchaseAmount) {
-        if ((purchaseAmount % LOTTO_PRICE) != 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_PURCHASE_AMOUNT_UNIT);
-        }
-
-        return purchaseAmount / LOTTO_PRICE;
     }
 }

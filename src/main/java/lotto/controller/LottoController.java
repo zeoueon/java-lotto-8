@@ -9,6 +9,8 @@ import lotto.view.OutputView;
 
 public class LottoController {
 
+    private static final int LOTTO_PRICE = 1000;
+
     private InputParser inputParser;
     private LottoGame lottoGame;
 
@@ -25,7 +27,7 @@ public class LottoController {
     private void startLottoGame() {
         int purchaseAmount = retryInput(() ->
                 inputParser.parsePurchaseAmount(InputView.inputPurchaseAmount()));
-        lottoGame = new LottoGame(purchaseAmount);
+        lottoGame = new LottoGame(purchaseAmount / LOTTO_PRICE);
         OutputView.printLottos(lottoGame.startLottoGame());
     }
 
