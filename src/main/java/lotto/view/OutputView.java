@@ -21,10 +21,10 @@ public class OutputView {
     }
 
     public static void printResults(List<LottoRanking> results) {
-        Map<LottoRanking, Integer> resultsMap = initializeResultsMap();
-        putResults(results, resultsMap);
+        Map<LottoRanking, Integer> rankingCount = initializeResultsMap();
+        putResults(results, rankingCount);
 
-        for (Map.Entry<LottoRanking, Integer> entry : resultsMap.entrySet()) {
+        for (Map.Entry<LottoRanking, Integer> entry : rankingCount.entrySet()) {
             System.out.println(entry.getKey().getStringFormat() + entry.getValue() + "개");
         }
     }
@@ -48,12 +48,12 @@ public class OutputView {
 
     private static void putResults(
             List<LottoRanking> results,
-            Map<LottoRanking, Integer> resultsMap
+            Map<LottoRanking, Integer> rankingCount
     ) {
         results.stream().filter(lottoRanking
                         -> !lottoRanking.equals(LottoRanking.NONE))
                 .forEach(lottoRanking -> {
-                    resultsMap.put(lottoRanking, resultsMap.get(lottoRanking) + 1);
+                    rankingCount.put(lottoRanking, rankingCount.get(lottoRanking) + 1);
                 });
     }
 }
