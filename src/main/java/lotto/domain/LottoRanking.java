@@ -3,20 +3,18 @@ package lotto.domain;
 import java.util.Arrays;
 
 public enum LottoRanking {
-    FIRST(1, 6, false, 2000000000),
-    SECOND(2, 5, true, 30000000),
-    THIRD(3, 5, false, 1500000),
-    FOURTH(4, 4, false, 50000),
-    FIFTH(5, 3, false, 5000),
-    NONE(0, 0, false, 0);
+    FIRST(6, false, 2000000000),
+    SECOND(5, true, 30000000),
+    THIRD(5, false, 1500000),
+    FOURTH(4, false, 50000),
+    FIFTH(3, false, 5000),
+    NONE(0, false, 0);
 
-    private int ranking;
     private int matchCount;
     private boolean bonusMatch;
     private int prizeMoney;
 
-    private LottoRanking(int ranking, int matchCount, boolean bonusMatch, int prizeMoney) {
-        this.ranking = ranking;
+    private LottoRanking(int matchCount, boolean bonusMatch, int prizeMoney) {
         this.matchCount = matchCount;
         this.bonusMatch = bonusMatch;
         this.prizeMoney = prizeMoney;
