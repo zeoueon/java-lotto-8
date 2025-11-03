@@ -13,4 +13,7 @@ public class ErrorMessage {
     public static final String INVALID_WINNING_LOTTO_RANGE = ERROR_MESSAGE_PREFIX + "당첨 번호는 1이상 45이하의 값이어야 합니다.";
     public static final String INVALID_FORMAT_WINNING_LOTTO = ERROR_MESSAGE_PREFIX + "당첨 번호를 올바른 형식으로 입력하세요.";
     public static final String INVALID_WINNING_LOTTO_COUNT = ERROR_MESSAGE_PREFIX + "당첨 번호는 6개를 입력해야 합니다.";
+
+    public static final String INVALID_LOTTO_NUMBER = ERROR_MESSAGE_PREFIX + "로또 번호는 6개여야 합니다";
+    public static final String NOT_DUPLICATED_LOTTO_NUMBER = ERROR_MESSAGE_PREFIX + "로또 번호에 중복이 존재할 수 없습니다.";
 }
