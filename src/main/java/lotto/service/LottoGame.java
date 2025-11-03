@@ -6,6 +6,7 @@ import lotto.domain.Lotto;
 import lotto.domain.LottoGenerator;
 import lotto.domain.LottoRanking;
 import lotto.domain.RandomNumberGenerator;
+import lotto.domain.WinningLotto;
 import lotto.dto.LottoDto;
 
 public class LottoGame {

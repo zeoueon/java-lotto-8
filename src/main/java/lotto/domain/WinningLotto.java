@@ -1,8 +1,6 @@
-package lotto.service;
+package lotto.domain;
 
 import java.util.List;
-import lotto.domain.Lotto;
-import lotto.domain.LottoRanking;
 
 public class WinningLotto {
 

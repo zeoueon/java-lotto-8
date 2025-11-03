@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Stream;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRanking;
-import lotto.service.WinningLotto;
+import lotto.domain.WinningLotto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
