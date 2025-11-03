@@ -21,8 +21,15 @@ public enum LottoRanking {
     }
 
     public static LottoRanking getRankingByMatchCount(int matchCount, boolean bonusMatch) {
+        if (matchCount == 5) {
+            return Arrays.stream(values())
+                    .filter(ranking -> ranking.matchCount == matchCount && ranking.bonusMatch == bonusMatch)
+                    .findFirst()
+                    .orElse(NONE);
+        }
+        
         return Arrays.stream(values())
-                .filter(ranking -> ranking.matchCount == matchCount && ranking.bonusMatch == bonusMatch)
+                .filter(ranking -> ranking.matchCount == matchCount)
                 .findFirst()
                 .orElse(NONE);
     }
